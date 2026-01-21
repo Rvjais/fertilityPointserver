@@ -1,6 +1,9 @@
 const IS_DEV = window.location.port === '5500';
-const API_BASE_URL = IS_DEV ? 'http://localhost:3000' : '';
-const socket = io(IS_DEV ? 'http://localhost:3000' : undefined);
+// REPLACE THIS URL with your Render backend URL after deployment
+const REMOTE_BACKEND_URL = 'https://your-app-name.onrender.com';
+
+const API_BASE_URL = IS_DEV ? 'http://localhost:3000' : REMOTE_BACKEND_URL;
+const socket = io(API_BASE_URL);
 
 // DOM Elements
 const loginScreen = document.getElementById('login-screen');

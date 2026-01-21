@@ -17,7 +17,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: ["http://localhost:5500", "http://127.0.0.1:5500"],
+        origin: "*", // Allow all origins for easier deployment
         methods: ["GET", "POST"]
     }
 });
@@ -27,7 +27,11 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/whatsapp_q
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Health Check Route
+app.get('/', (req, res) => {
+    res.json({ status: 'online', message: 'WhatsApp QR Backend is running' });
+});
 
 // MongoDB Connection
 mongoose.connect(MONGO_URI)
