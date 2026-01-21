@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <div class="login-container">
+                <h1>WhatsApp Web</h1>
+                <p>Open WhatsApp on your phone and scan the QR code</p>
+                <div class="qr-wrapper">
+                    <img id="qr-code" src="" alt="QR Code" />
+                    <div id="loading-qr" class="loading">Waiting for QR code...</div>
+                </div>
+                <div class="status-message" id="login-status">Connecting to server...</div>
+            </div>
+        </div>
+
+        <!-- Chat Screen -->
+        <div id="chat-screen" class="screen hidden">
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-avatar">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="header-actions">
+                        <button id="logout-btn" title="Logout">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search or start new chat" id="search-input">
+                </div>
+                <div class="chat-list" id="chat-list">
+                    <!-- Chat items will be injected here -->
+                </div>
+            </div>
+
+            <div class="main-chat">
+                <div class="chat-header hidden" id="chat-header">
+                    <div class="chat-info">
+                        <h2 id="current-chat-name">Select a chat</h2>
+                        <span id="current-chat-status"></span>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chat-messages">
+                    <div class="empty-state">
+                        <div class="empty-state-content">
+                            <h2>WACRS</h2>
+                            <!-- <p>Send and receive messages without keeping your phone online.</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
