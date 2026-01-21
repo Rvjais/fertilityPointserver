@@ -17,7 +17,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "*", // Allow all origins for easier deployment
+        origin: ["https://fertility-pointserver.vercel.app"], // Allow all origins for easier deployment
         methods: ["GET", "POST"]
     }
 });
