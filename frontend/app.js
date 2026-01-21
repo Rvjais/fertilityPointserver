@@ -1,6 +1,6 @@
 const IS_DEV = window.location.port === '5500';
 // REPLACE THIS URL with your Render backend URL after deployment
-const REMOTE_BACKEND_URL = 'https://your-app-name.onrender.com';
+const REMOTE_BACKEND_URL = 'https://fertilitypointserver.onrender.com/';
 
 const API_BASE_URL = IS_DEV ? 'http://localhost:3000' : REMOTE_BACKEND_URL;
 const socket = io(API_BASE_URL);
